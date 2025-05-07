@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
           body.classList.remove('no-scroll'); // 스크롤 허용
       }, 500); // CSS 트랜지션 시간(0.5s)과 동일하게 설정
       
-  }, 1000); // 로딩 시간 2초
+  }, 4000); // 로딩 시간 2초
 });
 
 //sec02 로고 슬라이드
