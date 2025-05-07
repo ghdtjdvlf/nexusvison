@@ -4,4 +4,4 @@
 
 
 사이트 주소 
-nexusvision.netlify.appss
+https://nexusvision.netlify.appss
