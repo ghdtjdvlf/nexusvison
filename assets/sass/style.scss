@@ -1,5 +1,5 @@
 body {
-  height: 10000px;
+  position: relative;
 }
 
 header {
@@ -73,19 +73,71 @@ section.kv {
       min-width: 177.77vh; /* 16:9 비율 (100*16/9) */
   }
   }
+  
 }
 
 .section02 {
-  height: 1000px;
-  background: var(--black-01);
+background: var(--black-01);
+height: auto;
+padding: 70px 0;
+
+.container {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 1000px;
-    color: #fff;
+    color: var(--white-01);
     font-size: 52px;
   }
+
+  .swiper.mySwiper {
+    height: 783px; /* 원하는 높이 */
+  }
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+    
+  .swiper-slide {
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-content {
+    position: absolute;
+    font-size: 20px;
+    bottom: -100%; /* 처음에는 숨겨짐 */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7); /* 딤드 효과 */
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  .swiper-slide:hover img {
+    filter: brightness(0.5); /* 이미지 어둡게 */
+  }
+  
+  .swiper-slide:hover .slide-content {
+    bottom: 0; /* 텍스트 나타남 */
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .swiper-slide img:hover {
+    background: #000;
+  }
+
+
+
+
+
 }
 
 .section03 {
@@ -158,15 +210,49 @@ section.kv {
     }
 }
 
-.swiper {
-   .swiper-slide{
-     img {
-      width: 100%;
-     }
-   }
+.section04 {
+  padding: 92px 0;
+  .row.partners {
+    text-align: left;
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--blue-01);
+    }
+    h2 {
+      font-size: 52px;
+      font-weight: 700;
+    }
+  }
+  .row.title {
+    margin: 90px 0;
+    display: flex;
+    align-items: center;
+    h2 {
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--black-01);
+      span{
+        display: block;
+      }
+    }
+  }
+  .swiper.logoSwiper{
+    .swiper-wrapper {
+      transition-timing-function: linear;
+      .swiper-slide{
+        img {
+          display: flex;
+          align-items: center;
+          width: 100px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
 }
 
-.section04 {
+.section05 {
   height: 703px;
 
   span {
@@ -180,12 +266,12 @@ section.kv {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--black-01);
-    font-size: 52px;
+    font-size: 46px;
     font-weight: 700;
     text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease;
-    z-index: 1000;
+    z-index: -1000;
   }
   
   .scroll-text.active {
@@ -217,9 +303,9 @@ section.kv {
 
 }
 
-.section05 {
+.section06 {
   position: relative;
-  transform: translate(0, 3800px);
+  transform: translate(0, 4000px);
   background: var(--blue-01);
   height: 703px;
   color: var(--white-01);
@@ -234,6 +320,11 @@ section.kv {
     font-size: 100px;
     font-weight: 700;
   }
+}
+
+footer {
+  position: relative;
+  transform: translate(0, 4200px);
 }
 
 
@@ -286,3 +377,161 @@ section.kv {
           width: 100%;
           height: 100%;
       }
+
+      .footer {
+        background-color: #ffffff;
+        color: #1a1a1a;
+        padding: 60px 0 30px;
+        border-top: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+    
+    .footer.dark {
+        background-color: #1a1a1a;
+        color: #f8f9fa;
+        border-top-color: #4a5568;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* 푸터 그리드 레이아웃 */
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    /* 회사 정보 섹션 */
+    .brand-section {
+        max-width: 280px;
+    }
+    
+    .logo {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .company-desc {
+        color: #4a5568;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+    
+    .footer.dark .company-desc {
+        color: #adb5bd;
+    }
+    
+    /* 소셜 미디어 아이콘 */
+    .social-links {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .footer.dark .social-icon {
+        background-color: #2d3748;
+    }
+    
+    .social-icon:hover {
+        background-color: #4f46e5;
+        color: white;
+        transform: translateY(-3px);
+    }
+    
+    /* 링크 섹션 */
+    .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+        color: #4a5568;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-size: 15px;
+    }
+    
+    .footer.dark .footer-links a {
+        color: #adb5bd;
+    }
+    
+    .footer-links a:hover {
+        color: #4f46e5;
+    }
+    
+    /* 하단 바 */
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 30px;
+        border-top: 1px solid #e2e8f0;
+    }
+    
+    .footer.dark .footer-bottom {
+        border-top-color: #4a5568;
+    }
+    
+    .footer-bottom p {
+        color: #4a5568;
+        font-size: 14px;
+    }
+    
+    .footer.dark .footer-bottom p {
+        color: #adb5bd;
+    }
+    
+    /* 다크 모드 토글 */
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
+    
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .footer-bottom {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+    }

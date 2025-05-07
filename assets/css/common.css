@@ -4,6 +4,7 @@
     --blue-01: #3e68ff;
     --black-01: #201F1F;
     --white-01: #FFFFFF;
+
 }
 
 /* 폰트 전체 적용 */
@@ -15,6 +16,8 @@ body {
     text-decoration: none;
     box-sizing: border-box;
     word-break: keep-all;
+    padding: 0;
+    margin: 0;
 }
 
 a {

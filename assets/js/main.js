@@ -12,88 +12,36 @@ document.addEventListener('DOMContentLoaded', function() {
           body.classList.remove('no-scroll'); // 스크롤 허용
       }, 500); // CSS 트랜지션 시간(0.5s)과 동일하게 설정
       
-  }, 1000); // 로딩 시간 2초
+  }, 500); // 로딩 시간 2초
 });
 
-//sec02 로고 슬라이드
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 50,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-  var swiper2 = new Swiper(".mySwiper2", {
-    direction: "vertical",
-    spaceBetween: 50,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+//KV 커지는 영상
 
-function adjustVideo() {
-    const video = document.getElementById('video-background');
-    const container = document.getElementById('video-container');
-    const windowRatio = window.innerWidth / window.innerHeight;
-    const videoRatio = 16 / 9;
-
-    if (windowRatio > videoRatio) {
-        // 너비가 더 넓은 경우 (세로 여백 없음)
-        video.style.width = '100%';
-        video.style.height = 'auto';
-    } else {
-        // 높이가 더 큰 경우 (가로 여백 없음)
-        video.style.width = 'auto';
-        video.style.height = '100%';
-    }
-}
-
-//sec03 로고 슬라이드
-
-var logoSwiper = new Swiper(".logoSwiper", {
-  autoplay: {
-    delay: 0,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 'auto',
-  centeredSlides: true,  
-  spaceBetween: 20,
-  loop: true,
-  speed: 4000,
-  loopAdditionalSlides: 3, // 추가 슬라이드 복제 → 마지막 슬라이드에서 멈칫하는 현상 방지
-  observer: true,
-  observeParents: true,
-  mousewheel: false,
-  simulateTouch: false,
-  pauseOnMouseEnter: false,
-  allowTouchMove: false,
-  grabCursor: false,
+document.addEventListener('DOMContentLoaded', function() {
+  const element = document.querySelector('.center-expand-container');
+  const youtubeContainer = document.getElementById('youtube-container');
+  const startWidth = 60; // 시작 너비 (vw)
+  const endWidth = 100; // 최종 너비 (vw)
   
-  breakpoints: {
-    1280: {
-      slidesPerView: 8,
-      spaceBetween: 0
-    },
-    1024: {
-      slidesPerView: 2.5,
-      spaceBetween: 20
-    },
-    720: {
-      slidesPerView: 2,
-      spaceBetween: 15
-    },
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 10
-    }
-  }
-  });
+  // 초기 너비 설정
+  element.style.width = `${startWidth}vw`;
+  youtubeContainer.style.width = `${startWidth}vw`;
   
-
-window.addEventListener('load', adjustVideo);
-window.addEventListener('resize', adjustVideo);
-
+  window.addEventListener('scroll', function() {
+      // 현재 스크롤 위치 (0~1 범위)
+      const scrollPosition = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
+      
+      // 너비 계산 (60vw에서 100vw로 점진적 증가)
+      const currentWidth = startWidth + (endWidth - startWidth) * scrollPosition;
+      
+      // 요소와 유튜브 컨테이너 너비 동시 적용
+      element.style.width = `${currentWidth}vw`;
+      youtubeContainer.style.width = `${currentWidth}vw`;
+      
+      // 유튜브 높이도 비율에 맞게 조정 (16:9 유지)
+      youtubeContainer.style.height = `${currentWidth * 9 / 16}vw`;
+  });
+});
 
 //sec05 text 
 
@@ -112,25 +60,25 @@ document.addEventListener('DOMContentLoaded', function() {
       progressBar.style.width = (scrollY / (docHeight - windowHeight)) * 100 + '%';
 
       // 조건문 순서 중요! 높은 값부터 체크해야 합니다.
-      if (scrollY >= 7000) {
+      if (scrollY >= 8000) {
           // 7000px 이상: 모두 숨김
           text1.classList.remove('active');
           text2.classList.remove('active');
           text3.classList.remove('active');
       } 
-      else if (scrollY >= 6000) {
+      else if (scrollY >= 7000) {
           // 6000px~7000px: text3 표시
           text1.classList.remove('active');
           text2.classList.remove('active');
           text3.classList.add('active');
       } 
-      else if (scrollY >= 5000) {
+      else if (scrollY >= 6000) {
           // 5000px~6000px: text2 표시
           text1.classList.remove('active');
           text2.classList.add('active');
           text3.classList.remove('active');
       } 
-      else if (scrollY >= 4068) {
+      else if (scrollY >= 5000) {
           // 4068px~5000px: text1 표시
           text1.classList.add('active');
           text2.classList.remove('active');
