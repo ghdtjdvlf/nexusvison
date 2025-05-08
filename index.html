@@ -7,24 +7,20 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+ 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/sass/style.css">
 
-
 </head>
-
-<body class="no-scroll"> 
-
+<body>
   <div class="loading-screen" id="loadingScreen">
     <div class="loading-spinner"></div>
     <div class="loading-text">로딩 중...</div>
   </div>
 
-    <!-- 메인 콘텐츠 -->
   <div class="main-content" id="mainContent">
-    
     <header>
       <a href="#">넥서스 비전(Nexus Vision)</a>
       <ul class="gnb">
@@ -36,13 +32,20 @@
         <li><a href="#">견적문의 1833-456</a></li>
       </ul>
     </header>
+    
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.91/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/p1RID2dJtQN3cZ6r/scene.splinecode"></spline-viewer>
+
 
     <section class="kv">
+
+    
+
       <div class="container text-center">
   
         <div class="title">
           <h1 class="">
-            Vision Unlocked.
+            재꿍아 안뇽
           </h1>
           <div class="next">
             <img class="next__btn" src="assets/img/icon/kv_icon_01.png" alt="아래방향 화살표">
@@ -56,10 +59,13 @@
       
       <div class="video">
         <div id="video-container">
-          <iframe id="video-background"
-            src="https://www.youtube.com/embed/ztVV54sPOns?autoplay=1&mute=1&loop=1&start=2810&controls=0&disablekb=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playsinline=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+          <video id="video-background"
+            src="assets/vid/kv_video1.mp4" 
+            autoplay 
+            loop
+            muted 
+            playsinline>
+          </video>
         </div>
       </div>
   
@@ -67,51 +73,7 @@
   
     <section class="section02">
       <div class="container d-flex">
-        <div class="col-md-4">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="assets/img/slide-img01.png" alt="">
-                <div class="slide-content">
-                  <h3>제목이 들어갑니다</h3>
-                  <p>설명 텍스트가 들어갑니다</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <img src="assets/img/slide-img01.png" alt="">
-                <div class="slide-content">
-                  <h3>제목이 들어갑니다</h3>
-                  <p>설명 텍스트가 들어갑니다</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <img src="assets/img/slide-img01.png" alt="">
-                <div class="slide-content">
-                  <h3>제목이 들어갑니다</h3>
-                  <p>설명 텍스트가 들어갑니다</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <img src="assets/img/slide-img01.png" alt="">
-                <div class="slide-content">
-                  <h3>제목이 들어갑니다</h3>
-                  <p>설명 텍스트가 들어갑니다</p>
-                </div>
-              </div>
-
-              <!-- 나머지 슬라이드 -->
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>  
-        </div>
-        <div class="col-md-4">
-          <h2>
-            Reference
-          </h2>
-          <p>
-            자세히보기
-          </p>
-        </div>
+        
         <div class="col-md-4">
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
@@ -132,13 +94,44 @@
               </div>
               <!-- 나머지 슬라이드 -->
             </div>
-            <div class="swiper-pagination"></div>
           </div>  
         </div>
-
+  
+        <div class="col-md-4">
+          <h2>
+            Reference
+          </h2>
+          <p>
+            자세히보기
+          </p>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/img/slide-img01.png" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/slide-img02.png" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/slide-img03.png" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/slide-img04.png" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/slide-img05.png" alt="">
+              </div>
+              <!-- 나머지 슬라이드 -->
+            </div>
+          </div>  
+        </div>
+  
       </div>
     </section>
-
+  
     <section class="section03"> 
         <div class="container">
           <div class="row mb-5">
@@ -211,18 +204,18 @@
               <div class="swiper-slide">
                 <img src="assets/img/icon/sec03-logo07.png" alt="">
               </div>
-
-
-
+  
+  
+  
               <!-- 나머지 슬라이드 -->
             </div>
-
+  
           </div>  
          </div>
     </section>
-
+  
     
-      <section class="section05">
+    <section class="section05">
         <div class="progress-bar"></div>
         
         <div id="text1" class="scroll-text">
@@ -238,7 +231,7 @@
         </div>
      
       
-      </section>
+    </section>
       
     <section class="section06">
         <div class="container">
@@ -256,9 +249,8 @@
         </div>
     </section>
 
-    <footer class="footer" id="footer">
-      
-    <div class="container">
+    <footer>
+      <div class="container">
       <div class="footer-grid">
           <!-- 회사 정보 섹션 -->
           <div class="brand-section">
@@ -340,8 +332,21 @@
           </button>
       </div>
   </div>
-    </footer>
+</footer>
+    
   </div>
+
+    <!-- 하단 바 -->
+
+
+
+</body>
+
+  
+
+
+
+
 
 
 
@@ -352,6 +357,7 @@
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
 crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 <script src="assets/js/swiper.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
