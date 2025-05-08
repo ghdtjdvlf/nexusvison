@@ -10,8 +10,16 @@
       },  
       autoplay: {
         delay: 0,
-        pauseOnMouseEnter : true
+        pauseOnMouseEnter : true,
     },
+    });
+
+    document.querySelector('.mySwiper').addEventListener('mouseenter', function() {
+      swiper.autoplay.pause();
+    });
+    
+    document.querySelector('.mySwiper').addEventListener('mouseleave', function() {
+      swiper.autoplay.resume();
     });
 
     var logoSwiper = new Swiper(".logoSwiper", {

@@ -12,36 +12,23 @@ document.addEventListener('DOMContentLoaded', function() {
           body.classList.remove('no-scroll'); // 스크롤 허용
       }, 500); // CSS 트랜지션 시간(0.5s)과 동일하게 설정
       
-  }, 500); // 로딩 시간 2초
+  }, 1500); // 로딩 시간 2초
 });
 
 //KV 커지는 영상
 
-document.addEventListener('DOMContentLoaded', function() {
-  const element = document.querySelector('.center-expand-container');
-  const youtubeContainer = document.getElementById('youtube-container');
-  const startWidth = 60; // 시작 너비 (vw)
-  const endWidth = 100; // 최종 너비 (vw)
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('video-background');
+    const maxScroll = 600; // 스크롤 범위 (0~600px)
+    
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollProgress = Math.min(scrollY / maxScroll, 1); // 0~1 사이 값
+      const newWidth = 60 + (40 * scrollProgress); // 60% → 100% 계산
   
-  // 초기 너비 설정
-  element.style.width = `${startWidth}vw`;
-  youtubeContainer.style.width = `${startWidth}vw`;
-  
-  window.addEventListener('scroll', function() {
-      // 현재 스크롤 위치 (0~1 범위)
-      const scrollPosition = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
-      
-      // 너비 계산 (60vw에서 100vw로 점진적 증가)
-      const currentWidth = startWidth + (endWidth - startWidth) * scrollPosition;
-      
-      // 요소와 유튜브 컨테이너 너비 동시 적용
-      element.style.width = `${currentWidth}vw`;
-      youtubeContainer.style.width = `${currentWidth}vw`;
-      
-      // 유튜브 높이도 비율에 맞게 조정 (16:9 유지)
-      youtubeContainer.style.height = `${currentWidth * 9 / 16}vw`;
+      video.style.width = `${newWidth}%`;
+    });
   });
-});
 
 //sec05 text 
 
@@ -60,25 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
       progressBar.style.width = (scrollY / (docHeight - windowHeight)) * 100 + '%';
 
       // 조건문 순서 중요! 높은 값부터 체크해야 합니다.
-      if (scrollY >= 8000) {
+      if (scrollY >= 7500) {
           // 7000px 이상: 모두 숨김
           text1.classList.remove('active');
           text2.classList.remove('active');
           text3.classList.remove('active');
       } 
-      else if (scrollY >= 7000) {
+      else if (scrollY >= 6500) {
           // 6000px~7000px: text3 표시
           text1.classList.remove('active');
           text2.classList.remove('active');
           text3.classList.add('active');
       } 
-      else if (scrollY >= 6000) {
+      else if (scrollY >= 5500) {
           // 5000px~6000px: text2 표시
           text1.classList.remove('active');
           text2.classList.add('active');
           text3.classList.remove('active');
       } 
-      else if (scrollY >= 5000) {
+      else if (scrollY >= 4500) {
           // 4068px~5000px: text1 표시
           text1.classList.add('active');
           text2.classList.remove('active');
@@ -95,5 +82,3 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('scroll', function() {
   console.log("현재 스크롤 위치:", window.scrollY + "px");
 });
-
-
